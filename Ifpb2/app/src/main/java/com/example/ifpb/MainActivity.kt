@@ -30,7 +30,8 @@ class MainActivity : AppCompatActivity() {
         this.ifpb.add(Campus("Mangabeira", "http://www.ifpb.edu.br/mangabeira"))
         this.ifpb.add(Campus("Princesa Isabel", "http://www.ifpb.edu.br/princesaisabel"))
         this.ifpb.add(Campus("Santa Rita", "http://www.ifpb.edu.br/santarita"))
-        this.ifpb.add(Campus("Google", "http://www.facebook.com"))
+        this.ifpb.add(Campus("github", "http://www.github.com"))
+        this.ifpb.add(Campus("facebook", "http://www.facebook.com"))
     }
 
     inner class OnClickLista : AdapterView.OnItemClickListener {

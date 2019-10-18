@@ -7,23 +7,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-    </TextView>
-    <Button
-        android:id="@+id/btOlhe"
-        android:background="#aaa"
-        android:textColor="#fff"
-        android:text="Olhe!"
-        android:textSize="30sp"
+    <ListView
+        android:id="@+id/lvCNB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
-    <WebView
-        android:id="@+id/wvIFPB"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </LinearLayout>

@@ -2,10 +2,13 @@ package com.example.ifpbweb
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.webkit.WebResourceRequest
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +22,8 @@ class MainActivity : AppCompatActivity() {
 
         this.btOlhe = findViewById(R.id.btOlhe)
         this.wvIFPB = findViewById(R.id.wvIFPB)
+        this.wvIFPB.webViewClient = MyWebViewClient()
+
         this.btOlhe.setOnClickListener(OnClickBotao())
     }
 
@@ -39,6 +44,22 @@ class MainActivity : AppCompatActivity() {
             val itIFPB = Intent("IFPB")
             startActivityForResult(itIFPB, IFPB)
 
+        }
+    }
+
+    inner class MyWebViewClient : WebViewClient(){
+        override fun shouldOverrideUrlLoading(
+            view: WebView?,
+            url: String?
+        ): Boolean {
+            if(Uri.parse(url).host == "www.github.com" ){
+                Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply{
+                    startActivity(this)
+                }
+            }else {
+                return false
+            }
+            return true
         }
     }
 }
