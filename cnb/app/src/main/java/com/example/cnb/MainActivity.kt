@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var telaReceiver: TelaReceiver
     private lateinit var carregadorReceiver: CarregadorReceiver
     private lateinit var aviaoReceiver: AviaoReceiver
+    private lateinit var wakeUpReceiver: WakeUpReceiver
     private  lateinit var dados : ArrayList<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         this.telaReceiver = TelaReceiver()
         this.carregadorReceiver = CarregadorReceiver()
         this.aviaoReceiver = AviaoReceiver()
+        this.wakeUpReceiver = WakeUpReceiver()
         this.dados = arrayListOf()
         this.lvCBN.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, this.dados)
     }
@@ -43,6 +45,10 @@ class MainActivity : AppCompatActivity() {
         val itfAviao = IntentFilter()
         itfAviao.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
         registerReceiver(this.aviaoReceiver, itfAviao)
+
+        val itfWakeUp = IntentFilter()
+        itfWakeUp.addAction(Intent.ACTION_BOOT_COMPLETED)
+        registerReceiver(this.wakeUpReceiver, itfWakeUp)
     }
 
     override fun onPause() {
